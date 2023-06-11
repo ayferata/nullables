@@ -21,31 +21,18 @@ System.out.println("y değişkeni null"); }
 
 
 
-
-
-
-
-
-
 import java.util.Date; 
 public class NullableDate { 
 private final Date value;     
 public NullableDate(Date value) { this.value = value; 	}
 public Date getValue() { return value; 	}
 public boolean isNull() { return value == null; 	}
+
 @Override public String toString() { return isNull() ? "null" : value.toString(); 	}
+
 }
 
 
-Gördüğünüz gibi, aynı sınıfı sadece String türünü Date olarak değiştirerek tekrar yazdık. Bunun iyi bir yöntem olmadığını kabul etmelisiniz. Yalnızca kod tekrarı yapmakla kalmadık, aynı zamanda birbiriyle alakalı olmalarına rağmen sınıflara farklı isimler vermek zorunda kaldık. Artık String türü için NullableString sınıfını, Date türü için NullableDate sınıfını kullanabiliriz.
-
-
-
-Yine de hâlâ ideal bir çözüm bulamadık. Çünkü Nullable sınıfını yalnızca 2 tür için kullanabiliyoruz. Peki ya bu sınıfı Integer, Double, Boolean gibi diğer türler için de kullanmak istersek? Hepsi için aynı kodu kopyalayıp farklı sınıflar oluşturmamız gerekir.
-
-
-
-Yapmak istediğimiz şey, bütün türler için geçerli olacak bir Nullable sınıfı yazmak. Bunu şu şekilde başarabiliriz: Nullable sınıfının Object türü üzerinde çalışmasını sağlayalım. Bildiğiniz gibi, Object sınıfı bütün sınıfların atasıdır. Dolayısıyla bütün türleri Object türünden ifade edebiliriz. Şimdi sınıfı düzenleyip tekrar yazalım:
 
 
 
