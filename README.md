@@ -3,12 +3,10 @@ public class Nullable { private final String value;
 public Nullable(String value) { this.value = value; 	}
 public String getValue() { return value; 	}
 public boolean isNull() { return value == null; 	}
+
 @Override public String toString() { return isNull() ? "null" : value; 	}
+
 }
-
-
-String nesneler üzerinde uğraşırken null hatalarının önüne geçmek için bu sınıfı kullanacağız. Sınıfı oluştururken parametre olarak bir String değer vereceğiz. Bu değerin null olup olmadığını isNull() metoduyla kontrol edeceğiz. Şimdi örnek bir kullanım gösterelim:
-
 
 
 Nullable x = new Nullable("null olmayan değer"); 
@@ -22,14 +20,10 @@ if (y.isNull()) {
 System.out.println("y değişkeni null"); }
 
 
-Yukarıdaki kodu çalıştırdığınız zaman çıktısı aşağıdaki gibi olur:
 
 
 
-null olmayan değer y değişkeni null
 
-
-Gördüğünüz gibi yazdığımız sınıf güzel bir şekilde çalışmaktadır. Peki ya bu sınıfı String türünden başka türler için de kullanmak istersek? Mevcut durumda Nullable sınıfı yalnızca String değerleri kabul ediyor. Yani bu sınıfı Date türündeki değerler üzerinde kullanamayız. O halde bu sınıfın adını NullableString olarak değiştirelim ve NullableDate adında başka bir sınıf oluşturalım:
 
 
 
